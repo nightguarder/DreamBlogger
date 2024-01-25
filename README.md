@@ -6,7 +6,7 @@ DreamsBlogger is a web application that uses latest frameworks functionalities.T
 
 # Schema
 
-![FullStack schema](public/schemaIMG.png)
+![FullStack schema](public/fullschema.png)
 
 # Features
 
