@@ -76,4 +76,7 @@ secret
 dist
 data
 
+#IDE
+.vscode
+.idea
 # Others
