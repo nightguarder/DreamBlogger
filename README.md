@@ -1,16 +1,17 @@
-# DreamsBlogger
+# Cyrils blogger
 
 **A Full-stack Web App made as a part of a [RobotDreams](https://github.com/nightguarder/RobotDreams.git) course.**
 
-DreamsBlogger is a web application that uses latest frameworks functionalities.This platform is designed for individuals to share and document their personal journeys, aspirations, and progress.
+Cyrils Blogger is a web application that uses latest frameworks functionalities, such as **Prismic**, **Next.js**, **MongoDB** and **ExpressJS** to create a seamless and efficient personal website with User Authentication and Communication..
 
 # Schema
 
-![FullStack schema](public/fullschema2.png)
+![]()
 
 # Features
 
 - [ ] User Login and JWT Auth
+- [ ] 
 
 # Documentation
 
