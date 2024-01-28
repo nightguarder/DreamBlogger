@@ -1,6 +1,6 @@
 # Dream Blogger
 
-**A Full-stack Web App made as a part of a [RobotDreams](https://github.com/nightguarder/RobotDreams.git) course.**
+A Full-stack Web App made as a part of a [RobotDreams](https://github.com/nightguarder/RobotDreams.git) course.
 
 __The project was moved to real web-app --> [CyrilsBlogr](https://github.com/nightguarder/CyrilsBlogr.git)__
 
