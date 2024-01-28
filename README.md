@@ -6,7 +6,7 @@ Personal blogg is a web application that uses latest frameworks functionalities,
 
 # Schema
 
-![]()
+![Schema](public/fullschema.png)
 
 # Features
 
