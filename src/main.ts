@@ -8,8 +8,9 @@ import { PostController } from "./controller/PostController";
 import createRouter from "./routes/routes";
 
 //Dotenv
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 require("dotenv").config();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3333;
 const HOST = process.env.HOST || "127.0.0.1";
 
 //Main function...
@@ -27,27 +28,14 @@ async function run() {
     console.log("Successfully connected to MongoDB!");
   } catch (error) {
     console.error("Connection to MongoDB failed.", error);
+    await MongoConn.connectDB().finally()
     process.exit(1); //Exiting now
   }
-
-  // Get the 'blog' collection
-  const db = mongo.db("blog");
-  const collection = db.collection("posts");
-  //Else
-  //Services & Controllers instance
-  const PostServices = new PostService(collection);
-  const postController = new PostController(PostServices);
-
-  //Routing
-  const postRouter = await createRouter(postController);
-  app.use("/api/v1/posts", postRouter);
-
   app.listen(PORT, () => {
-    console.log(`Server is running on port http://${HOST}:${PORT}.`);
+    console.log(`Express is running on port http://${HOST}:${PORT}.`);
   });
 
   //Middleware
   app.use(errorHandler);
 }
-
 run();
