@@ -22,9 +22,8 @@ async function run() {
   app.use(cors());
 
   //DB connection
-  let mongo;
   try {
-    mongo = await MongoConn.connectDB();
+    await MongoConn.connectDB();
     console.log("Successfully connected to MongoDB!");
   } catch (error) {
     console.error("Connection to MongoDB failed.", error);

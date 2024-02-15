@@ -5,7 +5,7 @@ A Full-stack Web App made as a part of a [RobotDreams](https://github.com/nightg
 DreamBlogger is a web application that uses latest frameworks functionalities. It has features like efficient SSR page loading, User Authentication with GitHub, comments and blog posts...
 
 __Frontend__
-- `TailwindCSS` and `Next.js`
+- `TailwindCSS`, `EJS` and `Next.js`
 
 __Backend__
 - `MongoDB` and ``Express.js`` 
@@ -19,6 +19,7 @@ __Backend__
 - [ ] User Login and JWT Auth
 - [ ] First Blog post
 - [ ] Users can log in, create new post and comment.
+- [ ] Quick search for a posted blog
 
 # Documentation
 

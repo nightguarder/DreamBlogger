@@ -23,9 +23,6 @@ dependencies:
   mongodb:
     specifier: ^6.3.0
     version: 6.3.0
-  parser,:
-    specifier: link:@typescript-eslint/parser,
-    version: link:@typescript-eslint/parser,
 
 devDependencies:
   '@types/cors':
