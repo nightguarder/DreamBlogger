@@ -1,5 +1,4 @@
 import express from "express";
-import helmet from "helmet";
 import cors from "cors";
 import path from "path";
 import expressLayouts from "express-ejs-layouts";
@@ -30,7 +29,6 @@ run()
     const app = express();
     //Express config
     app.use(express.json());
-    app.use(helmet());
     app.use(cors());
 
     app.use(express.static("public"));
