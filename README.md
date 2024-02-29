@@ -12,7 +12,7 @@ __Backend__
 
 # Schema
 
-![Schema](public/projectschema.png )
+![Schema](public/docs/fullstack_scheme.png )
 
 # Features
 
@@ -30,7 +30,7 @@ __Backend__
 
 # Notes
 ### EJS
-- Is a template engine for ExpressJS that uses views directory that employs dynamic content rendering on the server-side and loads only the HTML content to the client.
+- Is a template engine for Express.js that uses views directory that employs dynamic content rendering on the server-side and loads only the HTML content to the client.
 - 
 **Routing**
 - Again it was difficult to figure out on the first try, but I managed to handle it since it sorta works like Svelte. In your views directory you can utilize directories with .ejs layout, pages, partials.
