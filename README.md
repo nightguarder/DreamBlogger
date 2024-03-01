@@ -36,3 +36,7 @@ __Backend__
 - Again it was difficult to figure out on the first try, but I managed to handle it since it sorta works like Svelte. In your views directory you can utilize directories with .ejs layout, pages, partials.
 - **partials:** *partials are code blocks that are reused many times such ass header, footer, navbar*
 - **Routing:** res.render('.ejs location starting under views/... ', { variables, data etc. });
+**Static files**
+- In order to allow the user render css, img, scripts that you create in your /public folder you need to serve them to the client.
+- To serve static files such as images, CSS files, and JavaScript files, use the express.static built-in middleware function in Express.
+- https://expressjs.com/en/starter/static-files.html

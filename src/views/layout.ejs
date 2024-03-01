@@ -5,11 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
+
     <title><%= pageTitle %></title>
 </head>
-<body>
-<!-- Include your header or navigation if applicable -->
-<%- body %> <!-- This will include the content of the specific page -->
-<!-- Include your footer or other common elements if applicable -->
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <%- include('./partials/header.ejs')  %>
+
+<main>
+    <%- body %>
+</main>
+
+    <%- include('./partials/footer.ejs')  %>
 </body>
 </html>

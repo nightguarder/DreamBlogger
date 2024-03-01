@@ -308,6 +308,7 @@ module.exports = {
     fontFamily: {
       sans: [
         "ui-sans-serif",
+        "Poppins",
         "system-ui",
         "sans-serif",
         '"Apple Color Emoji"',
@@ -333,6 +334,10 @@ module.exports = {
         '"Courier New"',
         "monospace",
       ],
+      poppins: [
+          "Poppins",
+          "sans-serif"
+      ]
     },
     fontSize: {
       xs: ["0.75rem", { lineHeight: "1rem" }],

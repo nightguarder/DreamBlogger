@@ -1,0 +1,13 @@
+body {
+
+    font-family: 'Poppins', sans-serif;
+}
+
+main {
+    flex-grow: 1;
+    margin-top: 10vh;
+}
+
+.footer {
+    margin-bottom: 0;
+}
