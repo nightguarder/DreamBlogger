@@ -9,15 +9,14 @@
     <title><%= pageTitle %></title>
     <meta name="description" content="<%= pageDescription%>">
 </head>
-<body class="min-h-screen">
-<div class="container flex flex-col mx-auto">
-    <header class="py-3">
-        <%- include('../partials/header.ejs')  %>
-    </header>
-    <main class="flex flex-grow">
-        <%- body %>
-    </main>
-    <footer class="shrink-0"><%- include('../partials/footer.ejs') %></footer>
+<body class="min-h-screen bg-white dark:bg-gray-900">
+<div class="overflow-hidden">
+    <%- include('../partials/header.ejs')  %>
+
+    <%- body %>
+
+    <%- include('../partials/footer.ejs') %>
 </div>
 </body>
+<script src="/js/preline.js"></script>
 </html>
