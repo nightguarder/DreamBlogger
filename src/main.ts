@@ -4,7 +4,7 @@ import path from "path";
 import expressLayouts from "express-ejs-layouts";
 import { MongoConn } from "./services/MongoConnect";
 import errorHandler from "./middleware/exceptions";
-import { appRouter } from "./routes/routes";
+import { appRouter } from "./routes/router";
 
 //Dotenv
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -35,6 +35,7 @@ run()
 
     //Ejs Template engine
     app.set("views", path.join(__dirname, "views"));
+    app.set("layout", "./layouts/layout"); //Set Default page
     app.set("view engine", "ejs");
     app.use(expressLayouts);
 

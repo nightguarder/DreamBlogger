@@ -18,7 +18,7 @@ export class MongoConn {
     try {
       await client.connect();
       await client.db("admin").command({ ping: 1 });
-      console.log("Pinged your deployment.");
+      //console.log("Pinged your deployment.");
     } finally {
       await client.close();
     }
