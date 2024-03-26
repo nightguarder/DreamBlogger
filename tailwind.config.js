@@ -1,11 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 
 import typeforms from "@tailwindcss/forms";
-import preline from "preline/plugin"
+import preline from "preline/plugin";
 
 // eslint-disable-next-line no-undef
 module.exports = {
-  content: ["./src/**/*.{html,js,ejs}", "./src/views/**/*.ejs", "./node_modules/preline/dist/*.js"],
+  content: [
+    "./src/**/*.{html,js,ejs}",
+    "./src/views/**/*.ejs",
+    "./node_modules/preline/dist/*.js",
+  ],
   presets: [],
   darkMode: "media", // or 'class'
   theme: {
@@ -1078,5 +1082,5 @@ module.exports = {
       50: "50",
     },
   },
-  plugins: [typeforms,preline],
+  plugins: [typeforms, preline],
 };

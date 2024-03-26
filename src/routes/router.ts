@@ -18,7 +18,7 @@ export function appRouter(): Router {
 
   const Contact = {
     title: "Contact Page",
-    description: "Reach out to contact page",
+    description: "Reach out to us!",
   };
   //Homepage
   router.get("", (req, res) => {
