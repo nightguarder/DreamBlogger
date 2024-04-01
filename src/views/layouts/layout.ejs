@@ -2,21 +2,21 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
     <title><%= pageTitle %></title>
-    <meta name="description" content="<%= pageDescription%>">
-</head>
-<body class="min-h-screen bg-white dark:bg-gray-900">
-<div class="overflow-hidden">
-    <%- include('../partials/header.ejs')  %>
+    <meta name="description" content="<%= pageDescription%>" />
+  </head>
 
-    <%- body %>
+  <body class="min-h-screen bg-white dark:bg-gray-900">
+    <div class="overflow-hidden">
+      <%- include('../partials/header.ejs') %> <%- body %> <%-
+      include('../partials/footer.ejs') %>
+    </div>
+  </body>
 
-    <%- include('../partials/footer.ejs') %>
-</div>
-</body>
-<script src="/js/preline.js"></script>
+  <script src="/js/preline.js"></script>
+  <script type="text/javascript" src="/js/script.js" defer></script>
 </html>
