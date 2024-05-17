@@ -4,57 +4,64 @@ import path from "path";
 import expressLayouts from "express-ejs-layouts";
 import { MongoConn } from "./services/MongoConnect";
 import errorHandler from "./middleware/exceptions";
-import { appRouter, ActiveRoute } from "./routes/router";
+import { appRouter } from "./routes/router";
 import favicon from "serve-favicon";
+import dotenv from "dotenv";
 
-//Dotenv
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-require("dotenv").config();
+// Dotenv load
+dotenv.config();
+
 const PORT = process.env.PORT || 3333;
 const HOST = process.env.HOST || "127.0.0.1";
-//Main.ts
-async function run() {
-  //DB connection
+
+async function connectToDatabase() {
   try {
     await MongoConn.connectDB();
     console.log("Successfully connected to MongoDB!");
   } catch (error) {
     console.error("Connection to MongoDB failed.", error);
-    await MongoConn.connectDB().finally();
-    process.exit(1); //Exiting now
+    process.exit(1); // Exit if connection fails
   }
 }
-run()
-  .then(() => {
-    //Connection to MongoDB was successful
-    const app = express();
-    
-    //Express config
-    app.use(express.json());
-    app.use(cors());
-    app.use(express.static("public"));
-    
-    app.use(favicon(path.join(__dirname, "../public/favicon.ico")));
-    //Ejs Template engine
-    app.set("views", path.join(__dirname, "views"));
-    app.set("layout", "./layouts/layout"); //Set Default page
-    app.set("view engine", "ejs");
-    app.use(expressLayouts);
 
-    //Error handling for EJS
-    app.use(errorHandler);
+function configureExpressApp() {
+  const app = express();
+  
+  // Express middleware configuration
+  app.use(express.json());
+  app.use(cors());
+  app.use(express.static("public"));
+  app.use(favicon(path.join(__dirname, "../public/favicon.ico")));
 
-    //Routing
-    const ejsRouter = appRouter();
-    app.use("/", ejsRouter);
+  // EJS template engine setup
+  app.set("views", path.join(__dirname, "views"));
+  app.set("layout", "./layouts/layout");
+  app.set("view engine", "ejs");
+  app.use(expressLayouts);
 
-    
+  // Error handling middleware for EJS
+  app.use(errorHandler);
 
-    console.log("Server running on port " + PORT);
-    app.listen(PORT, () => {
-      console.log(`Express is running on port http://${HOST}:${PORT}.`);
-    });
-  })
-  .catch((error) => {
-    console.error("Error:", error);
+  // Routing
+  const ejsRouter = appRouter();
+  app.use("/", ejsRouter);
+  
+  return app;
+}
+
+async function startBackend() {
+  await connectToDatabase();
+
+  const app = configureExpressApp();
+
+  //IF everything works, start the server
+  app.listen(PORT, () => {
+    console.log(`Server running on http://${HOST}:${PORT}.`);
   });
+}
+
+// Main entry point
+startBackend().catch((error) => {
+  console.error("Error starting server:", error);
+  console.error("Did you configure the .env file?"); 
+});

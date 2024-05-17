@@ -1,5 +1,4 @@
 import express, { Router } from "express";
-
 import { PostController } from "../controller/PostController";
 import { isActiveRoute } from "./helper";
 import errorHandler from "../middleware/exceptions";
@@ -45,7 +44,7 @@ export function appRouter(): Router {
     description: "Manage your account.",
   };
   //Homepage
-  router.get("", (req, res) => {
+  router.get(Route.Home, (req, res) => {
     res.render("pages/index", {
       pageTitle: Home.title,
       pageDescription: Home.description,

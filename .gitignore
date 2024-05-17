@@ -79,4 +79,5 @@ data
 #IDE
 .vscode
 .idea
+.notes
 # Others
