@@ -4,7 +4,8 @@ import path from "path";
 import expressLayouts from "express-ejs-layouts";
 import { MongoConn } from "./services/MongoConnect";
 import errorHandler from "./middleware/exceptions";
-import { appRouter } from "./routes/router";
+import { appRouter } from "./routes/appRouter";
+import { adminRouter } from "./routes/adminRouter";
 import favicon from "serve-favicon";
 import dotenv from "dotenv";
 
@@ -46,6 +47,9 @@ function configureExpressApp() {
   const ejsRouter = appRouter();
   app.use("/", ejsRouter);
   
+  const admRouter = adminRouter();
+  app.use("/", admRouter);
+
   return app;
 }
 

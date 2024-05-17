@@ -1,5 +1,5 @@
+//appRouter.ts
 import express, { Router } from "express";
-import { PostController } from "../controller/PostController";
 import { isActiveRoute } from "./helper";
 import errorHandler from "../middleware/exceptions";
 
@@ -11,12 +11,8 @@ enum Route {
   About = '/about',
   Contact = '/contact',
   Account = '/account',
-
 }
 
-export function ActiveRoute(route: Route, activeRoute: Route): string {
-  return route === activeRoute ? 'active' : '';
-}
 export function appRouter(): Router {
   const router = express.Router();
   const Home = {
@@ -26,7 +22,7 @@ export function appRouter(): Router {
   };
   const Post = {
     title: "Blog Posts",
-    description: "Read inspiring blog posts from others.",
+    description: "Read inspiring blog posts from other users.",
   };
 
   const Contact = {
@@ -49,7 +45,7 @@ export function appRouter(): Router {
       pageTitle: Home.title,
       pageDescription: Home.description,
       activeRoute: Route.Home, //parameter for ActiveRoute()
-      ActiveRoute: ActiveRoute //Maybe implement middleware to pass this in each request? 
+      ActiveRoute: isActiveRoute,  //Maybe implement middleware to pass this in each request? 
     });
   });
 
@@ -59,7 +55,7 @@ export function appRouter(): Router {
       pageTitle: Post.title,
       pageDescription: Post.description,
       activeRoute: Route.Blog,
-      ActiveRoute: ActiveRoute
+      ActiveRoute: isActiveRoute,
     });
   });
 
@@ -69,7 +65,7 @@ export function appRouter(): Router {
       pageTitle: Contact.title,
       pageDescription: Contact.description,
       activeRoute: Route.Contact,
-      ActiveRoute: ActiveRoute
+      ActiveRoute: isActiveRoute,
     });
   });
   //Account
@@ -78,7 +74,7 @@ export function appRouter(): Router {
       pageTitle: Account.title,
       pageDescription: Account.description,
       activeRoute: Route.Account,
-      ActiveRoute: ActiveRoute
+      ActiveRoute: isActiveRoute,
     });
   });
   //About
@@ -87,7 +83,7 @@ export function appRouter(): Router {
       pageTitle: About.title,
       pageDescription: About.description,
       activeRoute: Route.About,
-      ActiveRoute: ActiveRoute
+      ActiveRoute: isActiveRoute,
     })
   })
   //Handle errors
@@ -99,24 +95,3 @@ export function appRouter(): Router {
   return router;
 }
 
-
-export function createRouter(controller: PostController) {
-  const router = express.Router();
-
-  //add new post
-  router.post("/", controller.addpost);
-
-  //get All posts
-  router.get("/", controller.getAllPost);
-
-  //get single post
-  router.get("/:id", controller.getPost);
-
-  //update
-  router.put("/:id", controller.updatePost);
-
-  //delete
-  router.delete("/:id", controller.deletePost);
-
-  return router;
-}

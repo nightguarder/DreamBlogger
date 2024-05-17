@@ -1,6 +1,7 @@
 /* A custom css for app */
 body {
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 
 main {
@@ -12,4 +13,6 @@ header{
 }
 footer {
     margin-bottom: 0;
+    width: auto;
+    min-height: 100%;
 }

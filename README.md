@@ -70,7 +70,22 @@ __Backend:__
 
 > __ExpressJS__
 - Middleware func should be handled at the end of the Express App configuration.
+- Don't forget to 
 
 > __TailwindCSS__
 - Managing TailwindCSS classes and building templates without a component library can be difficult and very time consuming. Previously I had experience building with Daisy UI but this wouldn't fit the theme of the blog.
-- Therefore, I choose [Preline](https://preline.co/index.html) an open-source component library that is minimalistic and has some free example templates to build from.
+- Therefore, I choose **[Preline](https://preline.co/index.html)** an open-source component library that is minimalistic and has some free example templates to build from.
+
+> __MongoDB__
+- MongoDB connection is handled with MongoConnect.ts service
+- For each new node ver. they update connection setup, always check current state: [Connection MongoDB Atlas](https://cloud.mongodb.com/v2/)
+- The URI must exactly match this format:
+
+ ```http
+ mongodb+srv://<username>:<password>@dreamblog.rgmr5q5.mongodb.net/?retryWrites=true&w=majority&appName=DreamBlog
+ ```
+
+  -  NOTE : 
+      - exclude *brackets <>* when setting up the username and password 
+      - If you try to connect to this db you will be rejected since it's configured only for my IP Adresss...
+      
